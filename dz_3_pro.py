@@ -42,13 +42,13 @@ print(text.translate(translator))
 print('-' * 100)
 
 
-# 2. Сформировать list со словами (split);
+# 2. Сформировать list со словами
 text_ls = list(text.split())
 print(text_ls)
 print('-' * 100)
 
 
-# 3. Привести все слова к нижнему регистру (map);
+# 3. Привести все слова к нижнему регистру
 text_low = list(map(lambda x: x.lower(), text_ls))
 print(text_low)
 print('-' * 100)
@@ -71,7 +71,7 @@ print('-' * 100)
 
 
 # 4. Получить из list пункта 3 dict, ключами которого являются слова,
-# а значениями их количество появлений в тексте;
+# а значениями их количество появлений в тексте
 text_dict = {}
 for i in text_low:
     if i in text_dict.keys():
@@ -82,8 +82,8 @@ print(text_dict)
 print('-' * 100)
 
 
-# 5. Вывести 5 наиболее часто встречающихся слов (sort),\
-# вывести количество разных слов в тексте (set).
+# 5. Вывести 5 наиболее часто встречающихся слов
+# Вывести количество разных слов в тексте
 frequent_words = [x for x in text.split() if len(x) > 3]
 print(*sorted(set(frequent_words), key=frequent_words.count, reverse=True)[:5], sep='\n')
 print('-' * 100)
