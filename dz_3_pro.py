@@ -36,21 +36,22 @@ text = 'Все счастливые семьи похожи друг на дру
 
 
 # 1. Методами строк очистить текст от знаков препинания
-text_b = text.replace(',', '').replace('?', '').replace(';', '').replace('.', ' ')
-print(text_b)
-print('-' * 40)
+import string
+translator = str.maketrans('', '', string.punctuation)
+print(text.translate(translator))
+print('-' * 100)
 
 
 # 2. Сформировать list со словами (split);
-text_ls = list(text_b.split())
+text_ls = list(text.split())
 print(text_ls)
-print('-' * 40)
+print('-' * 100)
 
 
 # 3. Привести все слова к нижнему регистру (map);
 text_low = list(map(lambda x: x.lower(), text_ls))
 print(text_low)
-print('-' * 40)
+print('-' * 100)
 
 # Лемматизация
 import pymorphy2
@@ -66,7 +67,7 @@ def lemmatization(arg):
 
 
 print(lemmatization(text_low))
-print('-' * 40)
+print('-' * 100)
 
 
 # 4. Получить из list пункта 3 dict, ключами которого являются слова,
@@ -78,13 +79,13 @@ for i in text_low:
     else:
         text_dict[i] = 1
 print(text_dict)
-print('-' * 40)
+print('-' * 100)
 
 
 # 5. Вывести 5 наиболее часто встречающихся слов (sort),\
 # вывести количество разных слов в тексте (set).
 frequent_words = [x for x in text.split() if len(x) > 3]
 print(*sorted(set(frequent_words), key=frequent_words.count, reverse=True)[:5], sep='\n')
-print('-' * 40)
+print('-' * 100)
 print((set(text_low)))
 
